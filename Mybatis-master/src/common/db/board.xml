@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board.BoardDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
+	
+	<sql id="selectBoard" > <!-- 공통의 쿼리를 sql태그로 묶어주고 활용함  -->
+		   select no, title, writer, content, view_cnt, to_char(reg_date, 'yyyy-mm-dd') reg_Date
+		   from t_board
+	</sql>
+
+	<insert id="newBoard" parameterType="boardVO"> <!-- id는 구분자 역할--> <!-- 파라미터타입을 typeAliases로 지정한 값을 넣어도 된다. -->
+		insert into t_board(no,title,writer,content)
+			values(seq_t_board_no.nextval, #{title} , #{writer} , #{content} )<!-- #은 pstmt 객체 type // '' 안붙여도 됨 -->
+			<!-- board 파라미터로 날라온 게 #{}에 알아서 mapping 된다. (getter 메서드 방식으로 삽입)  -->
+			<!-- values(seq_t_board_no.nextval, '${title}' , '${writer}' , '${content}' ) -->  <!-- $는 statement 객체 -->
+	</insert>
+	
+	<resultMap type="boardVO" id="boardMap">
+		<result column="view_cnt" property="viewCnt"/> <!-- view_cnt 컬럼명을 boardVO의 setter viewCnt로 쓸수 있도록 벼경  -->
+		<result column="reg_date" property="regDate"/>
+	</resultMap>
+	
+	
+	
+	<select id="selectAllMap" resultMap="boardMap">
+			select no, title, writer, content, view_cnt , 
+			to_char(reg_date, 'yyyy-mm-dd' ) as reg_date
+			from t_board
+			order by no desc
+	
+	</select>
+	
+	<select id="selectAll" resultType="boardVO">
+			select no, title, writer, content, view_cnt as viewCnt , 
+			to_char(reg_date, 'yyyy-mm-dd') as regDate
+			from t_board
+			order by no desc
+	
+	</select>
+	
+   <select id="selectOne" resultMap="boardMap" parameterType="boardVO">
+		   select no, title, writer, view_cnt, to_char(reg_date, 'yyyy-mm-dd') reg_Date
+		   from t_board
+		   where no = #{no}
+   </select>
+   
+   <select id="selectOne2" resultMap="boardMap" parameterType="int">
+		   select no, title, writer, view_cnt, to_char(reg_date, 'yyyy-mm-dd') reg_Date
+		   from t_board
+		   where no = #{no}
+   </select>
+	
+	<select id="selectOne3" resultMap="boardMap" parameterType="int">
+         <include refid="selectBoard"/>
+         where no = #{no}
+   </select>
+   
+  	<select id="selectOne4" resultType="hashmap" parameterType="int">
+         select no, title, writer, content, view_cnt, reg_date
+         from t_board
+         where no = #{no}
+   </select>
+   
+   <select id="selectNos" resultMap="boardMap" parameterType="boardVO">
+   		<include refid="selectBoard"/>
+   		where no in 
+   		<foreach collection="nos" item="bno" separator="," open="(" close=")">
+   			#{bno}
+   		</foreach>
+   		
+   </select>
+   
+   <select id="selectNos2" resultMap="boardMap" parameterType="list"><!-- java.util.List를 줄여서 list로 써도 됨 -->
+   		<include refid="selectBoard"/>
+   		where no in 
+   		<foreach collection="list" item="bno" separator="," open="(" close=")">
+   			#{bno}
+   		</foreach>
+   		
+   </select>
+   
+   
+   <select id="selectNos3" resultMap="boardMap" parameterType="int[]">
+   		<include refid="selectBoard"/>
+   		where no in 
+   		<foreach collection="array" item="bno" separator="," open="(" close=")">
+   			#{bno}
+   		</foreach>
+   </select>
+	
+	
+ 	<select id="selectWhere" parameterType="string" resultMap="boardMap"> <!--string 소문자로 입력 가능  -->
+ 		<include refid="selectBoard"/>
+ 		where title like '${title}%' <!-- %같은 특수문자를 입력하기 위해서는 pstmt가 아닌 stmt 형식으로 해야됨 -->
+ 	
+ 	</select>
+ 	
+ 	<select id="selectWhere2" parameterType="boardVO" resultMap="boardMap">
+ 		<include refid="selectBoard"/>
+ 		<where>
+ 			<if test="title != null">
+	 			title like '${title}%' 
+ 			</if>
+ 			<if test="writer != null"> <!-- 위에 조건 충족 여부에 따라 and가 자동으로 생략, 삽입 된다 -->
+ 				and writer = #{writer}
+ 			</if>
+ 		</where>
+ 	</select>
+ 	
+ 	<update id="updateBoard" parameterType="boardVO" >
+ 		update t_board set title = #{title} where no = #{no}
+ 	
+ 	</update>
+ 
+</mapper>
