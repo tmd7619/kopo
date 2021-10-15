@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body * {
+		display: block;
+		border: 2px solid red;
+		padding: 10px;
+		margin: 10px;
+	}
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+//		$('h2').siblings().css('border','2px solid blue') //h2를 기준으로 같은 level에 있는 태그들 적용
+//		$('h2').siblings('h3').css('border','2px solid blue') // h2 형제들 중 h3태그
+//		$('h2').next().css('border','2px solid blue') // 선택한 요소의 바로 다음에 위치한 형제 요소를 선택한다.
+//		$('h2').prev().css('border','2px solid blue') // 선택한 요소의 바로 이전에 위치한 형제 요소를 선택한다.
+//	    $('h1').nextUntil('p').css('border','2px solid blue') // h1를 기준으로 p태그 나오기 전까지 적용
+//		$('h1').prevAll().css('border','2px solid blue') // h1 전 모두 적용
+//		$('p').eq(1).css('border','2px solid blue')
+//		$('div > * ').eq(5).css('border','2px solid blue') // div 바로 밑 자식들중, eq(5)	
+//		$('div > *').not('p').css('border','2px solid blue') // div 바로 밑 자식들중 , p가 아닌것 
+//		$('div > *').find('p').css('border','2px solid blue') // find는 선택된 태그들의 자식들에서 찾는 것  
+		$('div > *').filter('p').css('border','2px solid blue') // filter는 선택된 태그들중에서 찾는 것 
+	})
+</script>
+</head>
+<body>
+	<div>
+		div1
+		<p>p1-1</p>
+		<h1>h1</h1>
+		<h2>h2</h2>
+		<h3>
+			h3
+			<p>p1-1-1</p>
+		</h3>
+		<p>p1-2</p>
+	</div>
+	<div>
+		div2
+		<h2>h2</h2>
+		<h3>h3</h3>
+		<p>p2-1</p>
+	</div>
+</body>
+</html>

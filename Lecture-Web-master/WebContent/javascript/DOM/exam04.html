@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	window.onload = function(){
+	
+		let h1Tag = document.createElement('h1') //태그추가
+		let text = document.createTextNode('hello') // text 추가
+		h1Tag.appendChild(text) // 태그 안에 hello 추가
+		
+		console.log(h1Tag)
+		document.body.appendChild(h1Tag) // h1Tag을 <body>밑에 자식으로 append		
+		
+		 // <img> 추가	
+		 let imgTag = document.createElement('img') 
+		 imgTag.setAttribute('src','https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png')
+//		 console.log(imgTag)
+
+		document.body.appendChild(imgTag)
+		
+		// 이미지에 a 태그 걸기
+		let aTag = document.createElement('a') 
+		
+		aTag.setAttribute('href','http://www.daum.co.kr')
+		aTag.target="_blank"	
+		console.log(aTag)
+		
+		aTag.appendChild(imgTag)
+		
+		document.body.appendChild(aTag)
+	}
+	
+	
+</script>
+</head>
+<body>
+	<!-- <h1>Hello</h1> 
+	<a href="http://www.daum.net" target="_blank">
+	<img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png">
+	</a>
+	 -->
+	 
+	 
+	
+	
+
+	
+</body>
+</html>

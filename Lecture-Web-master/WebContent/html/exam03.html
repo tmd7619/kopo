@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+	<input type=""> //input은 시작태그이면서, 종료태그이다. 
+			type :	text(한줄입력)
+					password(암호처리)
+					checkbox(다중선택)
+					radio(단일선택)
+					button(사용자이벤트처리)
+					file(첨부파일)
+					reset(초기화)
+					hidden(입력을 받지 않고 특정값을 전달)
+					submit(폼에서 입력받은 데이터를 서버에 전달)
+ -->
+
+	<form action="http://www.naver.com">
+		<fieldset>
+		<label>아이디 : <input type="text"></label><br> <label
+			for="password">비밀번호 :</label><input type="password" id="password"><br><br>
+		</fieldset>
+		<fieldset>
+		<legend>희망연봉</legend><br> <input type="radio" name="salary">3000
+		~ 3200<br> <input type="radio" name="salary">3200 ~ 3500<br>
+		<input type="radio" name="salary">3500 ~ 3700<br> <input
+			type="radio" name="salary">3700 ~ 3900<br> <input
+			type="radio" name="salary">4000 이상 ~<br> 
+		</fieldset>	
+			
+		<strong>사용가능언어(중복체크가능)</strong><br>
+		<input type="checkbox" name="long">C언어<br> <input
+			type="checkbox" name="long">JAVA<br> <input
+			type="checkbox" name="long">C#<br> <input
+			type="checkbox" name="long">Python<br> <input
+			type="checkbox" name="long">Servet/JSP<br> <input
+			type="checkbox" name="long">php<br> 
+		
+		<strong>취미(중복체크가능)</strong>
+		<input type="checkbox" name="habit">코딩<br> <input
+			type="checkbox" name="habit">디버깅<br> <input
+			type="checkbox" name="habit">테스트<br> 
+			
+			자기소개 : <textarea rows="7" cols="40"></textarea><br> 
+			첨부파일 : <input type="file"><br> 
+		<input type="submit">
+	</form>
+</body>
+</html>

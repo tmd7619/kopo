@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	window.onload = function(){ 
+		//방법1
+		let tags = document.querySelectorAll('td')
+		console.log(tags[0].innerHTML) // 첫번째 td 선택
+		console.log(tags[1].innerHTML) // 두번째 td 선택
+		
+		tags[0].innerHTML = '아이디' // 첫번째 td 값을 아이디로 변경
+		
+		//방법2 // 중요한 함수이기에 필수 암기
+		tags = document.getElementsByTagName('td') // 태그네임으로 엘리먼트를 찾고싶을 때 // 복수의 리턴값이 나올 수 있기 때문에, Element뒤에 s 붙음 // 배열형태
+		console.log(tags)
+		
+		tags[1].innerHTML = '패스워드' 
+
+		
+	}
+</script>
+</head>
+<body>
+
+	<table style="width: 100; height: 100;" border="1">
+		<tr>
+			<td>id</td>
+		</tr>
+		<tr>
+			<td>password</td>
+		</tr>
+	</table>
+
+</body>
+</html>

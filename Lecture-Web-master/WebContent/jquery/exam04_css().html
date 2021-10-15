@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+		alert('!!!')
+//		$('tr').css('background-color', 'yellow')
+		$('tr:odd').css('background-color', 'yellow')
+		
+		
+		$('h2').dblclick(function(){
+			$(this).hide()
+			
+		})
+		
+		
+		
+		// mouseenter + leave
+		$('h2').hover(function(){
+			$(this).css('background-color','pink')
+			
+		},function(){
+			$(this).css('background-color','white')
+			
+		})
+		
+		
+		/*
+		$('h2').mouseenter(function(){ // 마우스 가리키면 핑크색으로 변경
+			
+			$(this).css('background-color','pink')
+		})
+		
+		$('h2').mouseleave(function(){ // 빠져나오면 화이트
+		
+			$(this).css('background-color','white')
+			
+		})
+		*/
+		
+		
+		
+		
+		
+	})
+	
+	/*
+		인라인 css가 가장 우선시 된다.
+		<우선순위>
+		h1  > #h01 > .h01 > h2.01 
+		
+	*/
+</script>
+</head>
+<body>
+	<h2>회원명부</h2>
+	<table border="1">
+		<tr>
+			<th>이름</th>
+			<th>전화번호</th>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>010-1111-1111</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+
+
+
+
+
+

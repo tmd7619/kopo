@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	/*
+ 	클라이언트가 exam08에 요청 
+ 	form의 정보를 전송하기 위해서는, name속성을 반드시 써줘야 한다 name=value 형태로 전달됨
+
+	도메인에는 ? ->  ..... ~ /exam08.html?id=aaa&pwd=123&pwdCheck=123
+	
+	form의 input 값을 필수 항목으로 지정하고 싶다면?  
+	1. html 방법 required 속성을 넣으면 됨 // required="required" 라고 쓰는게 맞지만, 이름 밸류 값이 동일하면 하나로 써도 됨
+	2. onsubmit="return whenSubmit()" (동적 처리) return 값이 true면 요청, false면 요청x
+	*/
+	
+	// 원래는 document.getEl~ 로 id값 뽑아서 연산처리 해야하지만 ,form만의 다른 연산방식이 존재함 => input태그의 name속성으로 접근가능
+	function whenSubmit(){ 
+		let f = document.inputForm // document.inputForm을 콘솔창에 입력하면, form태그 출력
+		if(f.id.value== ''){
+			
+			alert('아이디를 입력하세요')
+			return false
+		}
+		if(f.pwd.value == '' || f.pwdCheck.value == ''){
+			
+			alert('패스워드를 입력해주세요')
+			return false
+			
+		}	
+		
+	
+		if(f.pwd.value != f.pwdCheck.value){
+			
+			alert('패스워드가 서로 다릅니다.')
+			return false
+		}
+		return true
+	}	
+</script>
+</head>
+<body>
+
+	<form action="exam08.html" name="inputForm" onsubmit="return whenSubmit()"> <!-- form은 서버의 요청하느 목적으로 쓰임 -->
+		아이디 : <input type="text" name="id" ><br>
+		패스워드 : <input type="password" name="pwd" ><br>
+		패스워드 확인 : <input type="password" name="pwdCheck" ><br>
+		<input type="submit" value="전송"	>
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	// 생성자 함수 // notion 그림 참조 
+	function Person(name, phone, addr ){ // 객체를 생성하는 생성자함수는, 함수앞에 대문자(규칙)
+		this.name = name // 생성자 함수에는  키 : 밸류 형태가 아님 // this.멤버변수 = 멤버변수로 정의한다
+		this.phone = phone // this는 생성자 함수 자신을 가리키고, this에 저장된 것들은 new를 통해 객체를 만들 때, 그 객체에 적용된다.
+		this.addr = addr 
+		this.info = function(){
+			let msg = ''
+				for(let key in this) {
+					if(key != 'info')
+						msg += key + ' : ' + this[key] + '\n'
+				}		
+				alert(msg)
+			
+		}
+		
+	}
+	let person = new Person('홍길동','010-211-1111','경기도 광명시')
+	person.info();
+	console.log(person)
+	
+	let person2 = new Person()
+	console.log(person2)
+	
+	alert(person instanceof Person) //person이 Person객체인지 확인하는 방법 // 맞으면 true return
+	
+	Person.prototype.aaa = function(){ // new 생성자 함수여야만 prototype 사용 가능 //Person 생성자로 만든 모든 객체는 이 함수를 사용할 수 있따.
+		
+		alert('aaa')
+		
+	}
+	
+	person.aaa()
+	person2.aaa()
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

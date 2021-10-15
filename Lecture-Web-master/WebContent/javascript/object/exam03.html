@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	function makePerson(name, phone, addr) { // function 안에 객체를 정의한 형태
+		
+		let person = {
+				'name' : name,
+				'phone' : phone,
+				'addr' : addr,
+				'info' : function() {
+					let msg = ''
+					for(let key in this) { // this는 name , phone, ... 
+						if(key != 'info') // 객체의 속성(name,phone ..)을 key변수에 대입
+							msg += key + ' : ' + this[key] + '\n' 
+					}		
+					alert(msg)
+				}
+		}
+		
+		return person
+		
+	}
+	
+	//let p = makePerson('홍길동', '010-1111-2222', '경기도 광명시')
+	//p.info()
+	
+	let persons = []
+	persons.push(makePerson('홍길동', '010-1111-2222', '경기도 광명시'))
+	persons.push(makePerson('홍길순', '010-3333-4444', '경기도 부천시'))
+	
+	for(let p of persons){
+		
+		p.info()
+		
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	let person = {
+			'name' : '홍길동', // name에 '' 생략가능  // 무조건 앞에 있는 key 값은 문자형으로 들어가기 때문
+			'phone' : '010-1111-2222'
+			
+	}
+
+	console.log(person)
+	alert('name : '+ person.name + ', phone : '+ person.phone) // 객체.맴버변수명으로 접근가능
+	alert('name : ' + person['name']) // '' 생략 불가 // 객체['맴버변수명']으로 접근가능
+	
+	alert('멤버변수 name 존재 여부 : ' + ('name' in person) )
+	alert('멤버변수 phone 존재 여부 : ' + ('phone' in person) )
+	alert('멤버변수 addr 존재 여부 : ' + ('addr' in person) )
+	
+	person.addr = '경기도 광명시'
+	alert('멤버변수 addr 존재여부 : '+ ('addr' in person))
+	console.log(person)
+	
+	delete(person.addr) // 객체 맴버변수 삭제 
+	alert('멤버변수 addr 존재여부 : '+ ('addr' in person))
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

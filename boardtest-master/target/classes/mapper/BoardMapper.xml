@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 이 파일은 SQL문을 작성할 파일이 된다. -->
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.my.spring.mapper.BoardMapper"><!-- SQL문을 작성한 매퍼(현파일)와 namespace로 등록한 인터페이스를 연동한다는 뜻-->
+
+	<!-- id는 해당 SQL문을 호출하기 위한 이름이고, resultType은 결과값을 받을 타입을 지정한 것이다.-->
+	<!-- 결과값으론, 이전에 만든 BoardVO타입으로 하되, 패키지명까지 정확하게 써줘야함!! -->
+	
+	<!-- 전체 내용 조회 -->
+	<select id="viewAll" resultType="com.my.spring.domain.BoardVO">
+		SELECT * FROM board ORDER BY SEQ DESC
+	</select>
+	
+	<!-- 글 상세조회 -->
+	<select id="viewDetail"
+		resultType="com.my.spring.domain.BoardVO" parameterType="int">
+		SELECT * FROM BOARD WHERE SEQ = #{seq}
+	</select>
+	
+	<!-- 조회수 +1 -->
+	<update id="plusCnt" parameterType="int">
+		UPDATE BOARD SET CNT = CNT + 1 WHERE SEQ = #{seq}
+	</update>
+
+	<!-- 게시판 insert -->
+		<!--  selectKey란 해당 insert문 실행 전이나 후에 selectKey 안의 내용을 실행시킨 후 해당 내용을 반환해준다.-->
+ 		<!-- 즉 다음 시퀀스 값을 select한 후 해당 값을 BoardVO 안에 넣어주는 기능을 한다. -->
+	<insert id="insertBoard"
+		parameterType="com.my.spring.domain.BoardVO">
+
+		<selectKey keyProperty="seq" order="BEFORE" resultType="int">
+			SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO BOARD (seq, writer, title, content)  
+		VALUES (#{seq}, #{writer}, #{title}, #{content})
+	</insert>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM BOARD WHERE SEQ = #{seq}
+	</delete>
+	
+	<!-- 게시글 수정 -->
+	<update id="updateBoard" parameterType="com.my.spring.domain.BoardVO">
+	UPDATE BOARD SET TITLE = #{title}, CONTENT = #{content} WHERE SEQ = #{seq}
+	</update>
+
+</mapper>

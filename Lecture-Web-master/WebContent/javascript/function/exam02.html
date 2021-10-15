@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function func(){
+		alert('call()')
+		console.log(arguments)  // arguments : 함수의 매개변수를 관리하는 객체 // 매개변수의 길이를 알 수 있다.
+		
+		switch(arguments.length){
+		case 0:
+			alert('call...')
+			break;
+		case 1:
+			alert('data : '+arguments[0])
+			break;
+		case 2:
+			alert(`no : ${arguments[0]} , msg : ${arguments[1]}`)
+			break;
+		}
+		
+	}
+
+	//func()
+	//func('A') 인자에 뭐가 들어와도, func()이 호출됨 
+	func(12,'hello')
+</script>
+</head>
+<body>
+
+</body>
+</html>

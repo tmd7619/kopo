@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	                  http://www.springframework.org/schema/beans/spring-beans.xsd
+	                  http://www.springframework.org/schema/context
+	                  http://www.springframework.org/schema/context/spring-context.xsd">
+	       
+	  <context:annotation-config/>  <!-- beans 태그 안에 있기에 context: 이런식으로 네임스페이스 지정 해줘야함 -->      
+	  
+	  
+	  
+    <bean class="di.exam02.Calculator" id="cal" />     
+    
+    <bean class="di.exam02.MyCalculator" id="myCal">
+    	<property name="cal" ref="cal"></property>
+    	<property name="firstNum" value="10"></property>
+    	<property name="secondNum" value="20"></property>
+    </bean>
+	  
+</beans>

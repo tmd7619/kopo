@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+		/*
+		let pTags = document.getElementsByTagName("p")
+		alert('innerHTML : ' + pTags[0].innerHTML)
+		alert('innerText : ' + pTags[0].innerText)
+		*/
+		
+		let html = $('p').html() // 0번째 데이터 하나 추출
+		let text = $('p').text() // p태그의 모든 데이터 추출
+		
+		alert('추출된 html : ' + html)
+		alert('추출된 Text : ' + text)
+		
+		$('button').click(function(){
+			/*
+			let inputTag = document.getElementById('name') // javascript 방법
+			let name = inputTag.value
+			*/
+			let name = $('#name').val()
+			alert('입력된 이름 : '+ name)
+			
+			
+		})
+		/* javascript 방법 
+		let inputTag = document.getElementsByTagName('a')
+		let addr = inputTag[0].getAttribute('href')
+		alert('추출된 주소 : '+addr)
+		*/
+		
+		// jquery 방법
+		let addr = $('a').attr('href') 
+		alert('추출된 주소 : '+ addr)
+		
+		
+	})
+</script>
+</head>
+<body>
+	<p>내이름은 <strong>홍길동</strong>이고, 별명은 <em>의적</em>입니다</p>
+	<p>내이름은 <strong>홍길순</strong>이고, 별명은 <em>의적2</em>입니다</p>
+	이름 : <input type="text" id="name">
+	<button>입력완료</button>
+	<a href="http://www.naver.com">네이버</a>
+</body>
+</html>

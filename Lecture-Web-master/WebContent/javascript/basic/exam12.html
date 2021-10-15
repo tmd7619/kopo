@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+/*	<문제 풀어보기>
+	이름을 입력하세요 : 홍길동
+	나이를 입력하세요 : 27
+	홍길동의 10년후의 나이는 37세입니다
+	계속하시겠습니까? <- Y
+			
+	이름을 입력하세요 : 고길동
+	나이를 입력하세요 : 53
+	고길동의 10년후의 나이는 63세입니다
+	계속하시겠습니까? <- N
+			
+	총 2번 수행했습니다
+*/
+let cnt = 1
+while(true){
+let name = prompt('이름을 입력하세요 : ')
+let age = prompt('나이를 입력하세요 :')
+alert(`${name}님의 10년후의 나이는 ${Number(age)+10}세 입니다.`)
+input = confirm('계속 하시겠습니까? ')
+if(input){
+	cnt++
+	continue
+}else{
+	break
+}
+}
+alert(`총 ${cnt}번 수행했습니다.`)
+
+</script>
+</head>
+<body>
+
+
+
+
+</body>
+</html>

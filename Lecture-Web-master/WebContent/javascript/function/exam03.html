@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	/*
+		인자에 값이 안들어가면 0을 넣어주는 함수 생성 
+	*/
+
+
+	function func(num1, num2, num3){
+		alert(`num1 : ${num1}, num2: ${num2}, num3 : ${num3}`)
+	}
+	
+	function func(num1, num2, num3){
+		
+		if(!num1) num1 = 0 // num1가 false라면, undefined라면 
+		if(!num2) num2 = 0
+		if(!num3) num3 = 0
+		
+		alert(`num1 : ${num1}, num2: ${num2}, num3 : ${num3}`)
+	}
+	
+	function func(num1, num2, num3){
+		
+		num1 = num1 || 0 // or연산자는 왼쪽부터 true가 나오면 true로 정의 // 자바스크립트에서는 0,null,undefined를 제외한 모든 값이 true
+		num2 = num2 || 0
+		num3 = num3 || 0
+		alert(`num1 : ${num1}, num2: ${num2}, num3 : ${num3}`)
+	}
+	
+	function func(num1=0, num2=0, num3 = 0){ // 앞에 인자가 초기화가 이루어지면, 뒤에 인자들도 반드시 초기화를 해주어야 한다. // ECMA 6버전 이후 나온 것
+		alert(`num1 : ${num1}, num2: ${num2}, num3 : ${num3}`)
+	}
+	
+	/*
+	function func(num1=0, num2, num3 = 0){  // error
+		alert(`num1 : ${num1}, num2: ${num2}, num3 : ${num3}`)
+	}
+	*/
+	
+	func()
+	func(1)
+	func(100,200,300)
+	func(10,20)
+	//func(100,200,300)
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

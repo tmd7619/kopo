@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+		10 ~ 100사이의 숫자를 입력하세요 : 32
+		1
+		2
+		짝
+		4
+		5
+		짝
+		7
+		8
+		짝
+		뽀숑
+		11
+		12
+		...
+		짝 19 
+		뽀뽀숑 20
+		..
+		28
+		짝
+		짝뽀뽀뽀송 30 
+		짝
+		짝
+	 */
+	let three = '짝'
+	let cnt = prompt('10 ~ 100사이의 숫자를 입력하세요  ')
+	let ten = ''
+	for (index = 1; index <= cnt; index++) {
+
+		if (index.toString().indexOf('3') != -1
+				|| index.toString().indexOf('6') != -1
+				|| index.toString().indexOf('9') != -1) {
+			document.write(three)
+		} else if (!(index % 10 == 0)) {
+			document.write(index)
+		}
+
+		if (index >= 10 && index % 10 == 0) {
+			ten += '뽀'
+			document.write(ten + '숑')
+		}
+
+		document.write('<br>')
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

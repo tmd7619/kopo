@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+		$('input').on({ // .on() 메소드를 사용하면 하나의 이벤트 핸들러에 여러 개의 이벤트를 동시에 바인딩할 수 있다.
+			'keydown' : function() { // 키밸류형태 // 키: 함수명 밸류 : 함수내용
+				$(this).css('color', 'orange')
+			},
+			'keyup' : function() {
+				$(this).css('color', 'black')
+			},
+			'focus' : function() {
+				$(this).css('border', '3px dotted red')
+				$(this).css('background-color', 'lightgray')
+			},
+			'blur' : function() {
+				$(this).css({ // json 객체 형태로도 쓸 수 있따/. 
+					'border' : '1px solid black',
+					'background-color' : 'white'
+	//				$(this).css('border', '1px solid black')
+	//				$(this).css('background-color', 'white')
+
+				})
+
+			}
+		})
+
+		/*
+		$('input').keydown(function(){
+			$(this).css('color','orange')
+			
+		})		
+		$('input').keyup(function(){
+			$(this).css('color','black')
+			
+		})
+		
+		$('input').focus(function(){
+			
+			$(this).css('border','2px dotted red') // css(속성 , value)
+			$(this).css('background-color','lightgray')
+		})
+		
+		$('input').blur(function(){
+			$(this).css('border','1px solid black')
+			$(this).css('background-color','white')
+			
+		})
+		 */
+	})
+</script>
+</head>
+<body>
+
+	이름 :
+	<input type="text">
+	<br> 전화번호 :
+	<input type="text">
+	<br>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	/*
+		테이블 컬럼에 있는 id, password를 모두 한글명으로 바꿔보기
+	
+	*/
+
+	alert('!!!')
+	window.onload = function(){ // onload의 함수는 원래 empty인데 새로운 함수를 추가시켜주는 원리 // 오버라이딩(재정의)
+		
+		//let id = document.getElementById('id') // 주어진 문자열과 일치하는 id 속성을 가진 요소를 찾고, let id에 저장 
+		
+		let id = document.querySelector('#id') // 선택자로 값을 찾아내는 방식
+		id.innerHTML = '아이디' // 'ID'를 아이디로 변경 		
+		
+		let password = document.querySelector('.pwd') // 클래스 // 1개일때 
+		password.innerHTML = '패스워드'
+
+		
+	}
+</script>
+</head>
+<body>
+
+	<table style="width: 100; height: 100;" border="1">
+		<tr>
+			<td id="id">ID</td>
+		</tr>
+		<tr>
+			<td class="pwd">PASSWORD</td>
+		</tr>
+		<tr>
+			<td class="pwd">PASSWORD</td>
+		</tr>
+	</table>
+
+</body>
+</html>

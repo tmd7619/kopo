@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+ <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	
+	$(document).ready(function(){
+		alert('!!!')
+		//$('ul li').hide()		
+		//$('ul li:first').hide() // 호랑이만 빠지게 됨
+		$('ul li:first-child').hide() // 호랑이와 김밥을 빼기 // 각 부모의 첫번째 자식 제외
+		//$('ul li:last-child').hide() // 여우 카레 제외
+		
+		$('a[target]').hide() // target속성을 가진 a링크 태그 제거
+		$('a[href="http://www.naver.com"]').hide() // href가 네이버인 태그 제거
+		
+		//$('input[type="button"]').hide() // 버튼1 삭제
+		//$('input:button').hide() // 버튼1 삭제
+		//$(':button').hide() // 타입이 버튼인 태그 삭제 // 두개가 다지워짐
+		//$('button').hide() // 버튼2만 삭제
+		
+		$(':button').click(function(){ // type이 button인 것을 클릭했다면, function()실행~
+			//$('h2').hide()
+			console.log($(this))
+			$(this).hide( "drop", { direction: "left" }, "slow" , 1000) // 클릭하면 현재 클릭한 버튼 (this) 지우기  // 안보이는 효과를 1초에 걸쳐서 없애기
+		})
+	})
+
+</script>
+</head>
+<body>
+
+	<h2>button 전</h2>
+	<input type="button" value="버튼1">
+	<button>버튼2</button>
+	<h2>button 후</h2>
+
+
+	<h2>a Tag 전</h2>
+	<a href="http://www.naver.com">네이버</a>
+	<a href="http://www.daum.net" target="_blank">다음</a>
+	<h2>a Tag 후</h2>
+	<h1>동물종류</h1>
+	<ul>
+		<li>호랑이</li>
+		<li>늑대</li>
+		<li>코끼리</li>
+		<li>여우</li>
+	</ul>
+	
+	<h1>음식종류</h1> <!-- 한 페이지당 h1태그는 한번만 나오는 것이 좋음 -->
+	<ul>
+		<li>김밥</li>
+		<li>냉면</li>
+		<li>초밥</li>
+		<li>돈까스</li>
+		<li>카레</li>
+	</ul>
+	
+	
+	
+</body>
+</html>

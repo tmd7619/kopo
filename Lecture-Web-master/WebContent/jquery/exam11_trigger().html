@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+	let starFunc = function() {
+		$('h1')[0].innerText += '*'
+
+	}
+	$(document).ready(function() {
+
+/* 		$('h1').click(function(e,data){ // 다시한번 보기
+			console.log(e)
+			console.log(data)
+			$('h1').text(function(index,text){
+				if(data == '*' && index == 0){
+					return text + data
+				}else if(data == '#' && index == 1){
+					return text + data
+				}
+				else return ""
+			})
+		}) */
+		
+		
+		$('h1').click(function(e,data='*'){ // 클릭하면 별찍기
+			
+			// data = data || '*'
+			//$(this)[0].innerText += '*'
+			$(this)[0].innerText += data // $(this)[0] -> 자바스크립트 객체 -> innerText함수 사용 가능
+		})
+		
+		
+		let pid = setInterval(function(){
+			// starFunc()
+			//$('h1').click() // 이벤트를 계속 발생시킴으로써, 별추가하기 // 좋은 방법은 아님 
+			
+			//$('h1').trigger('click') //trigger : 실제로는 이벤트가 발생하지 않는데, 이벤트가 발생되는 것처럼 실행시켜 주는 것
+			$('h1').trigger('click','*') //trigger의 2번째 인자는 파라미터(클릭함수의 파라미터를 받아옴 ) 
+		},1000)
+		
+		
+	
+		
+		
+		/*
+		setInterval(function(){
+			$('h1').append('*')
+		},1000)
+		 */
+
+	})
+</script>
+</head>
+<body>
+	<h1>start :</h1>
+</body>
+</html>

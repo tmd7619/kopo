@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	/*
+		자바스크립트를 통해 특정 영역의 데이터를 추출하고 싶을때
+	
+	*/
+
+
+	window.onload = function(){
+		alert('innerText : '+ document.body.innerText) // 바디태그에 있는 글자들을 text로 뽑아냄 (문자열로 인식)
+		alert('innerHTML : '+ document.body.innerHTML) // 태그까지 모두 출력 // 태그가 적용됨
+		
+		let list = ''
+		list += '<ul>'
+		list += '<li>aaa</li>'
+		list += '<li>bbb</li>'
+		list += '<li>ccc</li>'
+		list += '</ul>'
+		
+//		document.body.innerText = list // document의 body를 list로 덮어쓴다. (문자열로 인식) -> list의 태그를 문자열로 인식함
+//		document.body.innerHTML = list // 태그는 html의 태그를 인식, 나머지는 문자열로 인식 
+		document.body.innerHTML += list // body에 있는 내용까지 같이 출력하고 싶다면?
+		
+	}
+
+	/*
+	//페이지 로드가 끝난 뒤에(body가 읽어지고 난 다음), 새로운 화면에 ducument.write가 실행된다.
+	window.onload = function(){ 
+	setTimeout(function(){
+			
+	document.write('<h1>JAVASCRIPT<h1>')
+	},1000)
+	}
+	*/
+</script>
+</head>
+<body>
+
+	<h2>안녕하세요</h2>
+	<h2>hello</h2>
+
+</body>
+</html>

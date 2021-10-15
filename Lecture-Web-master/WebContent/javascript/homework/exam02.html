@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	let cnt =0
+	function clickBtn() {
+		cnt++
+		let id = document.getElementById('cnt')
+		id.innerHTML = cnt
+		// id.innerHTML = parseInt(id.innerHTML)+ 1 // 방법 2 cnt를 쓰지 않기
+	}
+
+	/*
+	
+		어떤 일부분만 수정을 하는 것이기 때문에, div이 아닌 span
+	
+	*/
+
+</script>
+</head>
+<body>
+
+	<span id="cnt">0</span>
+	<span>번 클릭</span>
+	<input type="button" value="클릭" onclick="clickBtn()">
+
+
+</body>
+</html>

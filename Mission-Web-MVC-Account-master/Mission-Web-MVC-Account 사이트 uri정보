@@ -1,0 +1,28 @@
+				가상 uri								forward 될 jsp
+
+전체게시판조회		/board/list.do						/board/list.jsp
+상세게시글조회		/board/detail.do					/board/detail.jsp
+게시글등록			/board/writeForm.do			
+게시글등록처리		/board/writeProcess.do
+게시글 삭제		/board/delete.do
+게시글 수정		/board/updateForm.do
+게시글 수정처리		/board/updateProcess.do
+
+로그인폼			/login.do							/member/login.jsp
+로그인처리			/loginProcess.do
+로그아웃			/logout.do
+회원가입			/register.do						/member/registerForm.jsp	
+회원가입처리		/registerProcess.do
+
+
+계좌목록조회		/account/list.do
+상세계좌조회		/account/detail.do
+계좌생성폼			/account/openAccountForm.do
+계좌생성처리 1 	/account/openAccountProcess.do
+계좌생성처리 2 
+
+계좌해지
+계좌 수정
+계좌 수정처리
+
+계좌이체			/account/transactionForm.do			/account/transactionForm.jsp

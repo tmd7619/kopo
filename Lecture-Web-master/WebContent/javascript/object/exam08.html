@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 깊은 복사 클론 함수 사용
+	function clone(obj){
+		
+		let object = {}
+		for(let key in obj){
+			object[key] = obj[key]
+			
+		}	
+		return object
+	}
+	
+	
+	let person = {
+			
+			name : '홍길동' , 
+			phone : '010-2222-4444'
+			
+	}
+	
+	// 얕은 복사
+	// let person2 = person
+	
+	//갚은 복사
+//	let person2 = clone(person)
+	let person2 = {...person}	// 전개연산자를 통해 신속한 깊은 복사 가능
+	person2.phone = '010-5555-7777'
+	
+	console.log(person)
+	console.log(person2)
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	function Person(name, phone, addr){
+		
+		this.name = name
+		this.phone = phone
+		this.addr = addr
+	}
+	
+	Person.prototype.info = function(){ // 프로토타입 함수 생성 // 객체끼리 공유할 수 있다. 
+		let msg = ''
+			for(let key in this) {
+				if(key != 'info')
+					msg += key + ' : ' + this[key] + '\n'
+			}		
+			alert(msg)
+	}
+	
+	let person = new Person('홍길동','010-2232-4234','경기도 부천시')
+	person.info()
+	
+	let person2 = new Person('홍길순','010-5323-4114','경기도 광명시')
+	
+	person2.info()
+	
+	Person.prototype.num = 100 // num이라는 변수 또한 Person 객체들과 공유할 수 있다.
+	
+	console.log(person)
+	console.log(person2)
+	
+	Person.prototype.info = function(){ // 프로토타입 함수 재정의 
+		
+		alert('change...')
+	}
+	
+	let person3 = new Person('고길동','010-6666-4114','서울시 서초구')
+	person3.info()
+	person3.num--;  
+	person2.num = 20;
+	person.info()
+	
+	console.log(person)
+	console.log(person2)
+	console.log(person3)
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

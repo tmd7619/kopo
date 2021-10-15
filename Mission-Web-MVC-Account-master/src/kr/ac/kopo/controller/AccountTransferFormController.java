@@ -1,0 +1,30 @@
+package kr.ac.kopo.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import kr.ac.kopo.vo.MemberVO;
+
+public class AccountTransferFormController implements Controller {
+
+	@Override
+	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		HttpSession session = request.getSession(); // 세션 객체 생성
+		MemberVO userVO = (MemberVO) session.getAttribute("userVO"); // userVO 세션객체 불러오기
+
+		String url = "";
+		if (userVO == null) { // 로그인이 x일때 ,
+			// 로그인 페이지로 이동
+			url = "redirect:/login.do";
+		} else { // 로그인중일 경우
+
+			url = "/account/transferForm.jsp";
+
+		}
+		
+		
+		return url;
+	}
+}

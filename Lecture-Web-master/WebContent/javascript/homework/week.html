@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+	div#d1{
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  min-height: 100vh;
+		  
+	}
+	.weekDiv{
+		padding : 50px;
+		color : white;
+		width : 100px;
+		height: 100px;
+		font-size : 30px;
+		text-align : center;
+		font-weight : bold;
+		line-height: 100px;
+		}
+
+</style>
+<script src="/Lecture-Web/jquery/js/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function(){
+		
+		
+		
+		
+		 $('.weekDiv').mouseenter(function(){
+			
+			$(this).animate({
+				width: '150px' , 
+				height : '150px'
+				
+			},function(){
+				$(this)[0].append('요일')  // this == $(this)[0] // 쓰는이유는 jquery 함수를 쓰기 위해
+			})
+
+			
+		})
+		
+		
+/* 		$('.weekDiv').on({
+            'mouseenter' : function(){
+               $(this).animate({
+                  width : '250px',
+                  height : '250px',
+               }, function(){
+                  $(this)[0].append("요일")
+               })
+            } 
+		})
+		 */
+		
+		$('.weekDiv').mouseleave(function(){	
+			$(this).animate({
+				width : '100px',
+				height : '100px'
+				
+			},function(){
+				let day = $(this)[0].innerText;
+			
+				console.log(day)
+				$(this).empty()
+				$(this).append(day[0])
+	
+			})
+		})
+		
+		
+	})
+	
+</script>
+</head>
+<body>
+	<div id="d1">
+		<div class="weekDiv" style="background-color: red;">일</div>
+         <div class="weekDiv" style="background-color: orange;">월</div>
+         <div class="weekDiv" style="background-color: yellow;">화</div>
+         <div class="weekDiv" style="background-color: green;">수</div>
+         <div class="weekDiv" style="background-color: blue;">목</div>
+         <div class="weekDiv" style="background-color: indigo;">금</div>
+         <div class="weekDiv" style="background-color: purple;">토</div>
+    </div>
+</body>
+</html>

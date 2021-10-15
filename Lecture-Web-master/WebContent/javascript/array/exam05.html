@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	/*
+		자바스크립트에서는 map과 forEach문을 많이 쓴다.
+	*/
+	
+
+	let books = ['콩쥐팥쥐', '피터팬', '백설공주', '신데렐라']
+	
+	for(let index = 0 ; index < books.length ; index ++ ){
+		
+		document.write(books[index] + "&nbsp;&nbsp;&nbsp") // &nbsp : 줄바꿈 없는 공백
+		
+	}
+
+	document.write('<br>')
+	
+	for(let i in books){
+		
+		document.write(books[i]+ "&nbsp;&nbsp;&nbsp" )
+		
+	}
+	document.write('<br>')
+	
+	for(let book of books){
+		
+		document.write(book +"&nbsp;&nbsp;&nbsp" )
+		
+	}
+	document.write('<br>')
+	
+	/*
+		
+	forEach문 문법 : array.forEach(callbackFunction(currnetValue, index, array), thisArg);
+	
+	매개변수로는 callbackFunction 과 thisArg 가 있습니다.
+
+	array의 인자값 만큼 callbackFunction이 반복되고,  thisArg 는 거기서의 this 값이 되는것이죠.
+
+	callbackFunction에는 3개의 매개변수가 있습니다.
+
+	currentValue : 배열 내 현재 값.
+
+	index : 배열 내 현재 값의 인덱스.
+
+	array : 현재 배열 입니다.
+	*/	
+	books.forEach(function(element,index,array){ //ECMA 5버전때 추가된 기능
+	
+		document.write(element + "&nbsp;&nbsp;&nbsp")
+	})
+	document.write('<br>')
+	
+	books.sort() 
+	// sort를 하게 되면 가나다순으로 자동정렬
+	books.forEach(function(element,index,array){
+	
+		document.write(element + "&nbsp;&nbsp;&nbsp")
+	})
+	document.write('<br>')
+	
+	
+	let nums = [12,6,25,63,4,32,18,4,55,35]
+	document.write(nums+'<br>')
+	//sort
+	nums.sort(function(left,right){ // 이건 그냥 암기
+		return left-right
+		
+	})
+	
+	document.write('오름차순정렬  : '  + nums + '<br>')
+	
+	nums.sort(function(left,right){
+		return right-left		
+	})
+	document.write('내림차순정렬  : '  + nums + '<br>')
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

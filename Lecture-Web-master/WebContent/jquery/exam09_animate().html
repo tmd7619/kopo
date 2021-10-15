@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		position: absolute;
+	}
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(document).ready(function() {
+		
+		$('div').animate({ // animation을 단계적으로 수행 // 위에서부터 순서대로 실행됨 
+			width : '200px'
+			
+		})
+		$('div').animate({
+			left : '100px',
+			opacity : '0.3'
+			
+		},2000)
+		
+		$('div').animate({
+			width : '+=100px',
+			height : '200px',
+			opacity : '0.7'
+			
+		},2000)
+		
+		$('div').animate({
+			width : '+=100px',
+			height : '200px',
+			opacity : '1' , 
+			left : '0px' , 
+			'background-color'  :  'blue' // jquery ui를 가져오면 사용이 가능해진다.
+		}
+		//, function(){ // 애니메이트가 끝나고 나면 이 함수를 실행 // 애니메이트와 동시에 css를 쓸 수 없기 때문에. jquery ui사용
+			//$(this).css('background-color', 'blue')	
+		//}	
+		)
+		
+		
+		
+		/*
+		$('div').animate({ // animation을 한번에 수행 
+			'width' : '+=200px',
+			'height' : '200px',
+			'left' : '100px',
+			'top' : '50px',
+			'opacity' : '0.6' // 투명도
+			
+		},2000)
+		*/
+	})
+</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

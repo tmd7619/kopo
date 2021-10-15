@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	let array = [1,2,3,4,5]
+	
+//	let array2 = array // 얕은복사 array와 array2가 같은 주소값을 가리키고 있다.
+
+	
+	// 깊은복사 ECMA 6버전
+	let array2 = [...array] // 전개연산자 이용
+
+
+	// 깊은복사 ECMA 5버전
+	/*
+	let array2 = []
+	for(let i in array){
+		
+		array2[i] = array[i]
+		
+	}
+	*/
+	console.log('array : ' + array)
+	console.log('array2 : ' + array2)
+	
+	array2[0] = 100
+	
+	console.log('array : ' + array)
+	console.log('array2 : ' + array2)
+
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

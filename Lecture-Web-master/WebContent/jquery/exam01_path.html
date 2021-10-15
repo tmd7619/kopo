@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--<script src="js/jquery-3.6.0.min.js"> 
+/*
+외부의 파일을 로딩을할 때, <script>태그 당 하나씩 정의 해줘야 한다.
+링크가 제대로 잡혔는지 확인하기 위해, 컨트롤을 누른채로 링크로 접속해본다.
+absolute path // WebContent는 경로에 포함 x
+<script src="/Lecture-web/jquery/js/jquery-3.6.0.min.js">  		/ => http://localhost.9999						
+*/
+</script>
+-->
+<!--<script src="https://code.jquery.com/jquery-3.6.0.js" 
+integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" \
+crossorigin="anonymous"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+	$(document).ready(function(){ // 순차적으로 실행된다는 보장은 없지만, window.onload와 다르게 여러게 실행할 수 있다.
+		alert('ready..')
+		
+	})
+	
+	$(document).ready(function(){ 
+		alert('ready..2')
+		
+	})
+	
+	// $(document).ready 축약하기 -> 	$()
+	$(function(){
+		alert('ready..3')
+	})	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

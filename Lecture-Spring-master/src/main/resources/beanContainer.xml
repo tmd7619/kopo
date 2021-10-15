@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                  http://www.springframework.org/schema/beans/spring-beans.xsd">
+   <!-- Hello hello = new Hello()  객체를 bean으로 만들기-->              
+  	<bean class="basic.Hello" id="hello"/> <!-- class="경로포함 클래스명" id="구분자명 설정"-->
+  	<bean class="basic.Hello" id="hello2" lazy-init="true"/> <!-- laze true : getBean 시, 객체 생성해주겠다  -->
+  														     <!-- lazy=init default값은 false -->
+</beans>

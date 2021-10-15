@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	let person = {
+
+		name : '홍길동',
+		phone : '010-1111-2222',
+		addr : '경기도 부천시',
+		info : function() { // 익명함수 형태로 객체에 함수 저장 가능
+			let msg = ''
+			for(let key in this){
+				msg += key + ' : ' + this[key] + '\n'
+				
+			}
+			alert(msg)
+			
+			
+			/*
+			let msg = ''
+			with (this) {
+				msg += 'name : ' + name + '\n'
+				msg += 'phone : ' + phone + '\n'
+				msg += 'addr : ' + addr  + '\n'
+				alert(msg)
+			}
+			*/
+			
+			/*
+			alert('name : '+ person.name + '\n')
+			alert('name : '+ person['name'] + '\n')
+			alert('name : '+ this.name + '\n'
+					+ 'phone : '+this.phone + '\n' 
+					+ 'addr : '+this.addr) // 자기 변수 참조 시, this 생략 불가
+			 */
+
+		}
+	}
+	with(person) { // with는 this 생략가능하게 해줌
+		info()
+	}
+	
+	person.info()
+	alert(person)
+	console.log(person)
+	
+	person.toString = function(){
+		
+		let msg = ''
+			for(let key in this){
+				msg += key + ' : ' + this[key] + '\n'
+				
+			}
+			return msg
+		
+	}
+	
+	alert(person)  // 자바스크립트도 자바처럼 person객체를 alert하면, 내부적으로 toString 함수를 호출함
+	alert(person.toString())
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

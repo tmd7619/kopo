@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   					   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   					   http://www.springframework.org/schema/aop
+	   					   http://www.springframework.org/schema/aop/spring-aop.xsd ">
+	
+	<bean class="aop.xml.Programmer" id="programmer" />
+	<bean class="aop.xml.Designer" id="designer" />	   	
+	<bean class="aop.xml.MyAspect" id="myAspect"/>	
+	
+	<aop:config> <!-- 애스팩트 단위로 나눔   -->
+		<aop:pointcut expression="execution(* aop.xml.*.work())" id="pointcut01"/>
+		<aop:aspect ref="myAspect"> <!-- 포인트컷과 어드바이스를 각각 설정  -->
+		
+			<aop:before method="gotoOffice" pointcut-ref="pointcut01"/>
+			<aop:after method="getoffOffice" pointcut-ref="pointcut01"/>
+			
+			<!-- <aop:before method="gotoOffice" pointcut="execution(* aop.xml.Programmer.work())"/> -->
+			<!-- <aop:before method="gotoOffice" pointcut="execution(public void aop.xml.*.work())"/>  패키지 내 모든 클래스 적용-->
+			<!-- <aop:after method="getoffOffice" pointcut="execution( * aop.xml.*.work())"/> -->
+		</aop:aspect>
+		
+	</aop:config>			   
+</beans>

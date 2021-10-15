@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img {
+		width: 150px;
+		height: 150px;
+		display: inline-block;
+		border: 1px solid lightgray;
+		float: left;
+	}
+		button {
+		height: 150px;
+		float: left;
+	}
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+		//$('img').first().appendTo('body') // img의 가장 첫번째를 잘라내서 body에 붙이겟다. //append이기에 가장 마지막에 붙여짐
+		
+		$('#btn1').click(function(){
+				
+		$('img').first().appendTo('#gallary')	
+		})
+		
+		$('#btn2').click(function(){
+				
+		$('img').last().prependTo('#gallary')	
+		})
+		
+		setInterval(function(){
+			
+			$('#btn2').trigger('click')
+		},2000)
+		
+		
+	})
+</script>
+</head>
+<body>
+	<button id="btn1"><</button>
+	<span id = "gallary">
+	<img src="/Lecture-Web/css/images/cat.jpg">
+	<img src="/Lecture-Web/css/images/sun.jpg">
+	<img src="/Lecture-Web/css/images/simson.gif">
+	<img src="/Lecture-Web/css/images/bw.gif">
+	<button id="btn2">></button>
+	</span>
+	<br>
+	
+</body>
+</html>

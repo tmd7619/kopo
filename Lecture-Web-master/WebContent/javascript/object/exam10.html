@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	//ECMA 6버전 이후
+	class Person { // 클래스형태이지만, 내부적으로는 prototype으로 보여짐 
+		
+		constructor(name, phone, addr){ // 클래스 내부에서는 function 키워드를 쓰지 않는다 
+			this._name = name // _ : 은닉성 추가
+			this._phone = phone
+			this._addr = addr 
+		}
+		info() {
+			let msg = ''
+			for(let key in this) {
+				msg += key + ' : ' + this[key] + '\n'
+			}
+			alert(msg)
+			//alert(`name : ${ this._name }\nphone: ${ this._phone }\naddr : ${ this._addr }`)
+		}
+		
+		get name(){
+			return this._name
+		}
+		set name(name){
+			this._name = name
+		}
+		
+		get phone(){
+			return this._phone
+			
+		}
+		set phone(phone){
+			
+			this._phone = phone 
+			
+		}
+		
+		get addr(){
+			return this._addr 	
+		}
+		set addr(addr){
+			this._addr = addr
+			
+		}
+		
+		
+	}
+	
+	class Doctor extends Person { // Person 상속받기
+		constructor(name, phone, addr, major) {
+			super()	// 필수로 실행
+			this._major = major
+		}
+	
+		get major(){
+			return this._major	
+		}
+		set major(major){
+			this._major = major
+			
+		}
+	}
+
+
+	let p = new Person('홍길동','010-1111-2222','경기도 광명시') // new로 객체를 만들때만 prototype를 쓸 수 있다
+	p.info()
+	console.log(p)
+	
+	p.name = "홍길순" // get, set함수를 만들었기 때문에 수정이 가능함 
+	console.log(p.name)
+	
+	let d = new Doctor('나최고', '010-3333-4444', '서울시 서초구 잘고쳐병원', '신경외과')
+	//d.info()
+	console.log(d)
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

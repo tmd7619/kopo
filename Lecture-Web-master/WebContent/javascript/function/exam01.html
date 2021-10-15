@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	/*
+	자바스크립트의 함수는 매개변수의 개수와 상관없이 함수를 호출할 수 있다.
+	*/
+
+
+	function aaa() {
+		alert('선언적 aaa() 호출')
+	}
+	
+	var aaa = function() { // 익명함수가 선언적함수보다 우선순위가 높다. // 익명함수가 실행됨
+		alert('익명함수 aaa() 호출...')
+	}
+	// 선언적 함수
+	function testFunction() {
+		alert('testFunction() 호출...')
+	}
+	
+	function testFunction01(data) {
+		alert('data : ' + data)
+	}
+	
+	function testFunction02(a, b) {
+		alert(`a : ${ a }, b : ${ b }`)
+	}
+	
+	function add(a, b) {
+		return a + b
+	}
+	
+	// 익명함수 // 
+	var func = function () {
+		alert('test()...')
+	}
+	
+	function callbackFunc(f){ // 콜백함수 : 인자에 함수를 넣어서, 인자로 들어온 함수를 실행시키게 해줌 
+		f()
+	
+	function getSum(a,b){
+		let s = 0;
+		while(a <= b){
+			s += a++;
+			
+		}
+		return s;
+	}
+
+		function printSum(a, b) {
+			/*
+			let s = 0;
+			while(a <= b) {
+				s += a++;
+			}
+			alert(`${a} ~ ${b} 총합 : ${ s }`)
+			*/
+			
+			//alert(`${a} ~ ${b} 총합 : ${ getSum(a, b) }`)
+			
+			function sum(a, b) {
+				let s = 0;
+				while(a <= b) {
+					s += a++;
+				}
+				return s
+			}
+			alert(`${a} ~ ${b} 총합 : ${ sum(a, b) }`)
+		}
+	}
+	callbackFunc(function(){
+		alert('익명함수 호출 ...')
+	})
+	
+	callbackFunc(func)
+	callbackFunc(testFunction)
+	
+	aaa()
+	func()
+	
+	let sum = add(10, 20)
+	alert('총합 : ' + sum)
+	
+	testFunction02('A', 10)
+	testFunction01(123)
+	testFunction()
+</script>
+</head>
+<body>
+</body>
+</html>

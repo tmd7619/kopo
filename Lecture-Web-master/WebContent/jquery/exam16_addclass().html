@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		border : 1px solid red;
+	}
+	
+	.red{
+		color : red
+	}
+
+	.blue{
+		color : blue
+	}
+	
+	.backGray{
+		background-color : lightgrey
+		
+	}
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+			
+		$('p').addClass('red') // p태그에 red클래스를 add // 하나의 태그에 여러개의 클래스를 가질 수 있다 (공백으로 구분)
+		$('#id01').addClass('blue')
+		$('.c01').removeClass('red')
+	})
+</script>
+</head>
+<body>
+	<div>
+		<p id="id01">나는 홍길동이다</p>
+		<mark class="c01">나는 김길동이다</mark>
+		나는 고길동이다<br>
+		<p class="c01">나는 한길동이다</p>
+	</div>
+	<p id="id02">나는 박길동이다</p>
+	<button>삭제</button>
+</body>
+</html>
+
+
+
+
+
+
+
+

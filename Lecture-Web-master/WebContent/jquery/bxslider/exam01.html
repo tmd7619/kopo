@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('.slider').bxSlider({
+			
+			captions : true,
+			slideWidth : 400,
+			auto: true,
+			autoControls: true,
+			stopAutoOnClick: true,
+			mode: 'vertical'
+		})
+		
+	})
+</script>
+</head>
+<body>
+
+	<div class="slider">
+		<div><img src="/Lecture-Web/css/images/cat.jpg" title="고양이"></div>
+		<div><img src="/Lecture-Web/css/images/sun.jpg" title="태양이야"></div>
+		<div><img src="/Lecture-Web/css/images/simson.gif" title="지치지 않는 심슨"></div>
+		<div><img src="/Lecture-Web/css/images/bw.gif" title="magic eyes"></div>
+	</div>
+</body>
+</html>

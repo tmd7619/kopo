@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	window.onload = function(){
+		
+		// 표준이벤트 모델 DOM level2 : addEventListener(eventName, handler,useCapture),removeEventListener()
+		let btn01 = document.getElementById("btn01") 
+		// btn01에 클릭 이벤트를 추가시키려는 목적
+		btn01.addEventListener('click', function(){
+			alert('btn01 click...')
+			
+		})
+		
+		let btn02 = document.getElementById("btn02")
+		let span = document.getElementById("span01")
+		
+		btn02.addEventListener('click',function(){
+			alert('btn02 click...')
+		},true) // 캡쳐링 값을 true로 변경 (3번째 인자) // -> 캡쳐링에 의해 부모 -> 자식으로 작동
+		
+		span.addEventListener('click',function(){
+			alert('span click...')
+		})
+		
+	}
+		
+</script>
+
+
+</head>
+<body>
+
+	<button id="btn01">click</button>
+	<button id="btn02"><span id="span01">click</span></button>
+
+
+</body>
+</html>
